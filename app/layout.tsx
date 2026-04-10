@@ -6,7 +6,7 @@ import ThemeProvider from "@/components/ThemeProvider";
 const geist = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Ivan Martinez — Full Stack Developer & Tech Lead",
+  title: "Ivan Martinez — Full Stack Developer",
   description:
     "Full Stack Developer & Tech Lead with 4+ years building production-grade SaaS platforms using React, Node.js, NestJS, and Next.js.",
   keywords: ["Full Stack Developer", "Tech Lead", "React", "NestJS", "Next.js", "Bolivia", "Remote"],

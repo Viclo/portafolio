@@ -43,7 +43,7 @@ export default function About() {
             {/* Bio */}
             <motion.div variants={fadeUp} className="space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed">
               <p>
-                I&apos;m a <strong className="text-slate-800 dark:text-slate-100">Full Stack Developer & Tech Lead</strong> based
+                I&apos;m a <strong className="text-slate-800 dark:text-slate-100">Full Stack Developer</strong> based
                 in Cochabamba, Bolivia, with 4+ years of experience building production-grade SaaS platforms
                 for companies in the US, Canada, and beyond — fully remote.
               </p>

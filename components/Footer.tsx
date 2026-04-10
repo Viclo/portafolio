@@ -27,7 +27,7 @@ export default function Footer() {
           {/* Name */}
           <p className="text-sm">
             <span className="text-white font-semibold">{personalInfo.name}</span>
-            {" · "}Full Stack Developer & Tech Lead
+            {" · "}Full Stack Developer
           </p>
 
           {/* Social */}
