@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { skills } from "@/data/portfolio";
+import { useHasMounted } from "@/hooks/useHasMounted";
 
 const categoryColors: Record<string, string> = {
   Frontend: "bg-violet-50 dark:bg-violet-900/20 text-violet-700 dark:text-violet-300 border-violet-100 dark:border-violet-800/40",
@@ -29,12 +30,13 @@ const stagger = {
 };
 
 export default function Skills() {
+  const hasMounted = useHasMounted();
   return (
     <section id="skills" className="py-24 bg-white dark:bg-slate-800/40">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={stagger}
-          initial="hidden"
+          initial={hasMounted ? "hidden" : false}
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
         >

@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { MapPin, Mail, ArrowDown, Download } from "lucide-react";
+import { personalInfo } from "@/data/portfolio";
+import { useHasMounted } from "@/hooks/useHasMounted";
 
 function GithubIcon({ size = 20 }: { size?: number }) {
   return (
@@ -18,38 +20,36 @@ function LinkedinIcon({ size = 20 }: { size?: number }) {
     </svg>
   );
 }
-import { personalInfo } from "@/data/portfolio";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (delay = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, delay, ease: "easeOut" as const },
-  }),
-};
 
 export default function Hero() {
+  const hasMounted = useHasMounted();
+
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/40 to-slate-50 dark:from-slate-900 dark:via-blue-950/30 dark:to-slate-900"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      style={{
+        background:
+          "radial-gradient(ellipse 80% 60% at 60% 20%, rgba(219,234,254,0.5) 0%, transparent 70%), radial-gradient(ellipse 60% 50% at 10% 80%, rgba(191,219,254,0.3) 0%, transparent 60%)",
+      }}
     >
-      {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-200/30 dark:bg-blue-800/20 rounded-full blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-300/20 dark:bg-blue-700/15 rounded-full blur-3xl" />
-        <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-blue-100/30 dark:bg-blue-900/20 rounded-full blur-2xl" />
-      </div>
+      {/* Static CSS gradient — no blur, no squares */}
+      <div className="absolute inset-0 bg-slate-50 dark:bg-slate-900 -z-10" />
+      <div
+        className="absolute inset-0 -z-10 dark:opacity-30 opacity-60"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 60% at 65% 15%, #bfdbfe 0%, transparent 65%), radial-gradient(ellipse 50% 50% at 5% 85%, #dbeafe 0%, transparent 60%)",
+        }}
+      />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 pt-32">
         <div className="max-w-3xl">
           {/* Availability badge */}
           <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={0}
+            initial={hasMounted ? { opacity: 0, y: 16 } : false}
+            animate={hasMounted ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.05 }}
             className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full mb-6 border border-blue-200 dark:border-blue-700/50"
           >
             <span className="relative flex h-2 w-2">
@@ -61,10 +61,9 @@ export default function Hero() {
 
           {/* Name */}
           <motion.h1
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={0.1}
+            initial={hasMounted ? { opacity: 0, y: 16 } : false}
+            animate={hasMounted ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.1 }}
             className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 dark:text-white mb-3"
           >
             {personalInfo.name}
@@ -72,10 +71,9 @@ export default function Hero() {
 
           {/* Title */}
           <motion.h2
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={0.2}
+            initial={hasMounted ? { opacity: 0, y: 16 } : false}
+            animate={hasMounted ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.17 }}
             className="text-2xl sm:text-3xl font-semibold text-blue-600 dark:text-blue-400 mb-5"
           >
             {personalInfo.title}
@@ -83,10 +81,9 @@ export default function Hero() {
 
           {/* Tagline */}
           <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={0.3}
+            initial={hasMounted ? { opacity: 0, y: 16 } : false}
+            animate={hasMounted ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.22 }}
             className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mb-6"
           >
             {personalInfo.tagline}
@@ -94,10 +91,9 @@ export default function Hero() {
 
           {/* Location */}
           <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={0.4}
+            initial={hasMounted ? { opacity: 0, y: 16 } : false}
+            animate={hasMounted ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.27 }}
             className="flex items-center gap-2 text-slate-500 dark:text-slate-400 mb-8"
           >
             <MapPin size={16} />
@@ -106,10 +102,9 @@ export default function Hero() {
 
           {/* CTAs */}
           <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={0.5}
+            initial={hasMounted ? { opacity: 0, y: 16 } : false}
+            animate={hasMounted ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.32 }}
             className="flex flex-wrap gap-3 mb-10"
           >
             <a
@@ -136,10 +131,9 @@ export default function Hero() {
 
           {/* Social links */}
           <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={0.6}
+            initial={hasMounted ? { opacity: 0, y: 16 } : false}
+            animate={hasMounted ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.37 }}
             className="flex items-center gap-4"
           >
             <a
@@ -173,16 +167,13 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.6 }}
+        initial={hasMounted ? { opacity: 0 } : false}
+        animate={hasMounted ? { opacity: 1 } : {}}
+        transition={{ delay: 0.8, duration: 0.5 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500"
       >
         <span className="text-xs">Scroll down</span>
-        <motion.div
-          animate={{ y: [0, 5, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5 }}
-        >
+        <motion.div animate={{ y: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>
           <ArrowDown size={16} />
         </motion.div>
       </motion.div>

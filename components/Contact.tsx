@@ -21,6 +21,7 @@ function LinkedinIcon({ size = 18 }: { size?: number }) {
 }
 
 import { personalInfo } from "@/data/portfolio";
+import { useHasMounted } from "@/hooks/useHasMounted";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 25 },
@@ -28,6 +29,7 @@ const fadeUp = {
 };
 
 export default function Contact() {
+  const hasMounted = useHasMounted();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -56,7 +58,7 @@ export default function Contact() {
     <section id="contact" className="py-24 bg-white dark:bg-slate-800/40">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial="hidden"
+          initial={hasMounted ? "hidden" : false}
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
           variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
