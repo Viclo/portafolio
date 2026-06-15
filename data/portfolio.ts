@@ -48,7 +48,7 @@ export const experience = [
   },
   {
     company: "Nacer Digital",
-    location: "Remote",
+    location: "Mexico (Remote)",
     role: "Full Stack Developer",
     period: "Feb 2025 – Jan 2026",
     current: false,
@@ -74,7 +74,7 @@ export const experience = [
   },
   {
     company: "Iventiva",
-    location: "Cochabamba, Bolivia",
+    location: "Cochabamba, Bolivia · Client: Alberta, Canada",
     role: "Software Engineer",
     period: "Apr 2023 – Feb 2025",
     current: false,
@@ -148,6 +148,45 @@ export const skills: Record<string, string[]> = {
     "Google OAuth",
   ],
 };
+
+export const projects = [
+  {
+    name: "ComplyDQ",
+    url: "https://my.complydq.com",
+    description:
+      "Document management SaaS for heavy transport companies built from scratch. Multi-tenant architecture with per-company subdomain isolation via Cloudflare, a dynamic Stripe billing engine with tier-based driver-count pricing and 3-day deferred scheduling, and a Twilio/Postmark notification pipeline queued via Redis. Deployed on a bare Linux server with pm2 and Keycloak for identity management.",
+    stack: ["Next.js", "NestJS", "PostgreSQL", "Stripe", "Redis", "Cloudflare"],
+    company: "Redlizard Studioz Inc.",
+    accent: "blue" as const,
+  },
+  {
+    name: "ProtoCall",
+    url: "https://protocall.pro",
+    description:
+      "Freelance marketplace where companies and individuals post projects and freelancers apply to them. Supports multi-role workflows, real-time persistent chat, milestones, time logs, and dispute resolution with an admin decision panel. The rating system mirrors Upwork's model: star distribution, weighted average, and last-5-reviews. Deployed on a self-hosted server via a CI/CD pipeline.",
+    stack: ["Next.js", "NestJS", "Firestore", "PostgreSQL", "Stripe", "AWS"],
+    company: "Nacer Digital",
+    accent: "violet" as const,
+  },
+  {
+    name: "ManoTécnica",
+    url: "https://www.manotecnica.com",
+    description:
+      "SaaS platform that field-service companies (plumbers, electricians, masons, and similar trades) subscribe to for managing their technicians. Features a Google Calendar-style scheduler visible to both technicians and company admins, real-time GPS tracking via Google Maps, and media uploads for work verification. Payments are handled through Stripe with country-specific product configurations. Full AWS staging environment set up from scratch: Amplify, Elastic Beanstalk, RDS, SSL, and DNS routing.",
+    stack: ["React", "NestJS", "GraphQL", "PostgreSQL", "Heroku"],
+    company: "Iventiva",
+    accent: "emerald" as const,
+  },
+  {
+    name: "Ownly",
+    url: "https://www.ownly.re",
+    description:
+      "Real estate SaaS built for the Canadian and US markets, where agencies list land and buyers can design their future home through an interactive, Minecraft-style house builder. It integrates third-party services for identity verification (US/CA providers), bank authentication, and mortgage capacity evaluation, supported by an automated multi-stage email pipeline and significant DB query optimizations.",
+    stack: ["React", "Next.js", "Ruby on Rails", "PostgreSQL", "Sequelize"],
+    company: "Iventiva",
+    accent: "amber" as const,
+  },
+];
 
 export const education = {
   institution: "Universidad Mayor de San Simón",
