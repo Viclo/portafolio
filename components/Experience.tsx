@@ -9,7 +9,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="relative scroll-mt-24 border-y border-ink-900/8 bg-ink-50/60 py-28 sm:py-36 dark:border-white/8 dark:bg-white/[0.02]"
+      className="relative section-anchor border-y border-ink-900/8 bg-ink-50/60 py-28 sm:py-36 dark:border-white/8 dark:bg-white/[0.02]"
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
         <Reveal>

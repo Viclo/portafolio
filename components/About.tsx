@@ -15,7 +15,7 @@ const focusAreas = [
 
 export default function About() {
   return (
-    <section id="about" className="relative scroll-mt-24 py-28 sm:py-36">
+    <section id="about" className="relative section-anchor py-28 sm:py-36">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
         <Reveal>
           <SectionHeader
@@ -153,7 +153,7 @@ function Row({
   id?: string;
 }) {
   return (
-    <div id={id} className="scroll-mt-28 p-5 sm:p-6">
+    <div id={id} className="p-5 sm:p-6">
       <dt className="flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] text-ink-400 uppercase dark:text-ink-500">
         <span className="text-brand-500 dark:text-brand-400">{icon}</span>
         {label}

@@ -20,7 +20,7 @@ export default function Projects() {
        hairlines keep it delineated once the page around it is dark too. */
     <section
       id="projects"
-      className="relative isolate scroll-mt-24 overflow-hidden border-y border-white/8 bg-ink-950 py-28 text-ink-300 sm:py-36"
+      className="relative isolate section-anchor overflow-hidden border-y border-white/8 bg-ink-950 py-28 text-ink-300 sm:py-36"
     >
       <div
         aria-hidden

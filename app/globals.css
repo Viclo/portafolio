@@ -61,8 +61,10 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    /* Fixed header is 4.5rem — without this, anchored headings land underneath it */
-    scroll-padding-top: 6rem;
+    /* Fixed header is 4.5rem — without this, anchored headings land underneath
+       it. Applied once, here: never repeat it as scroll-mt-* on the targets or
+       the two clearances stack. */
+    scroll-padding-top: 5rem;
     -webkit-text-size-adjust: 100%;
   }
 
@@ -123,6 +125,22 @@
     linear-gradient(to right, rgb(255 255 255 / 0.045) 1px, transparent 1px),
     linear-gradient(to bottom, rgb(255 255 255 / 0.045) 1px, transparent 1px);
   background-size: 64px 64px;
+}
+
+/*
+  Sections already carry 7rem (9rem from sm up) of internal top padding. Landing
+  an anchor on the section's outer edge would stack the navbar clearance on top
+  of all that padding and leave a huge empty band, so pull the landing point down
+  into the padding. The negative values are tuned so the heading arrives at the
+  same ~10rem from the top at every breakpoint.
+*/
+.section-anchor {
+  scroll-margin-top: -2rem;
+}
+@media (width >= 40rem) {
+  .section-anchor {
+    scroll-margin-top: -4rem;
+  }
 }
 
 /* Scroll reveals are server-rendered at opacity:0, so without JS the page would
