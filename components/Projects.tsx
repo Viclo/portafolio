@@ -38,7 +38,7 @@ export default function Projects() {
             label="Selected work"
             tone="dark"
             title="Four products, live in production."
-            intro="Platforms I designed, built, and shipped — each one is running today with real customers on it."
+            intro="Platforms I designed, built, and shipped. Each one is running today with real customers on it."
           />
 
           <div className="mt-16 border-t border-white/10">

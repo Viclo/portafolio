@@ -20,12 +20,12 @@ const mono = JetBrains_Mono({
 });
 
 const SITE_DESCRIPTION =
-  "Full Stack Developer & Tech Lead with 4+ years building production-grade SaaS platforms — multi-tenant architecture, billing engines, and cloud infrastructure with React, Next.js, NestJS and PostgreSQL.";
+  "Full Stack Developer & Tech Lead with 4+ years building production-grade SaaS platforms, covering multi-tenant architecture, billing engines, and cloud infrastructure with React, Next.js, NestJS and PostgreSQL.";
 
 export const metadata: Metadata = {
   title: {
-    default: "Ivan Martinez — Full Stack Developer & Tech Lead",
-    template: "%s · Ivan Martinez",
+    default: "Ivan Martinez | Full Stack Developer & Tech Lead",
+    template: "%s | Ivan Martinez",
   },
   description: SITE_DESCRIPTION,
   keywords: [
@@ -43,13 +43,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "profile",
     locale: "en_US",
-    title: "Ivan Martinez — Full Stack Developer & Tech Lead",
+    title: "Ivan Martinez | Full Stack Developer & Tech Lead",
     description: SITE_DESCRIPTION,
     siteName: "Ivan Martinez",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ivan Martinez — Full Stack Developer & Tech Lead",
+    title: "Ivan Martinez | Full Stack Developer & Tech Lead",
     description: SITE_DESCRIPTION,
   },
   robots: { index: true, follow: true },

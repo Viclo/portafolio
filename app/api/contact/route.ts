@@ -102,7 +102,7 @@ export async function POST(request: NextRequest) {
     return fail("Please write a slightly longer message.", 400);
   }
   if (message.length > LIMITS.message.max) {
-    return fail("That message is too long — please keep it under 5000 characters.", 400);
+    return fail("That message is too long. Please keep it under 5000 characters.", 400);
   }
 
   const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";

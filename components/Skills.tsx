@@ -15,7 +15,7 @@ export default function Skills() {
             index="04"
             label="Stack"
             title="Tools I reach for."
-            intro="Grouped by where they sit in the system, not by how well I know them — everything listed here has run in production."
+            intro="Grouped by where they sit in the system, not by how well I know them. Everything listed here has run in production."
           />
 
           <div className="mt-16 border-t border-ink-900/10 dark:border-white/10">

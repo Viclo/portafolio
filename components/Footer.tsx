@@ -22,7 +22,7 @@ export default function Footer() {
               </span>
             </a>
             <p className="mt-3 max-w-sm text-sm leading-relaxed">
-              {personalInfo.title} — building production SaaS from {personalInfo.location}, remotely.
+              {personalInfo.title}, building production SaaS remotely from {personalInfo.location}.
             </p>
           </div>
 

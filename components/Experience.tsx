@@ -17,7 +17,7 @@ export default function Experience() {
             index="02"
             label="Experience"
             title="Four years, four teams, one throughline."
-            intro="Every role has meant owning a system end to end — not just the feature in front of me."
+            intro="Every role has meant owning a system end to end, not just the feature in front of me."
           />
 
           <div className="mt-16">

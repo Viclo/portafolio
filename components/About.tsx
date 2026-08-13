@@ -23,7 +23,7 @@ export default function About() {
             label="About"
             title={
               <>
-                I own the whole stack —
+                I own the whole stack,
                 <br className="hidden sm:block" /> schema to deploy.
               </>
             }

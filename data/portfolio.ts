@@ -4,7 +4,7 @@ export const personalInfo = {
   /* Hero headline is split so one phrase can carry the gold marker */
   headline: { lead: "I build SaaS platforms that hold up in", accent: "production" },
   tagline:
-    "4+ years building production-grade SaaS. Specialized in scalable backend systems, complex third-party integrations, and full infrastructure ownership — from database design to cloud deployment.",
+    "4+ years building production-grade SaaS. I specialize in scalable backend systems, complex third-party integrations, and owning infrastructure end to end, from database design through to cloud deployment.",
   location: "Cochabamba, Bolivia",
   timezone: "GMT-4",
   availability: "Open to remote opportunities",
@@ -28,7 +28,7 @@ export const experience = [
     company: "Redlizard Studioz Inc.",
     location: "Canada (Remote)",
     role: "Tech Lead & Full Stack Developer",
-    period: "Sep 2025 – Present",
+    period: "Sep 2025 - Present",
     current: true,
     summary:
       "Promoted to Tech Lead after three months. Own the architecture of a multi-tenant compliance SaaS built from scratch.",
@@ -58,7 +58,7 @@ export const experience = [
     company: "Nacer Digital",
     location: "Mexico (Remote)",
     role: "Full Stack Developer",
-    period: "Feb 2025 – Jan 2026",
+    period: "Feb 2025 - Jan 2026",
     current: false,
     summary:
       "Real-time features and cloud infrastructure for a multi-role freelance marketplace.",
@@ -86,7 +86,7 @@ export const experience = [
     company: "Iventiva",
     location: "Cochabamba, Bolivia · Client: Alberta, Canada",
     role: "Software Engineer",
-    period: "Apr 2023 – Feb 2025",
+    period: "Apr 2023 - Feb 2025",
     current: false,
     summary:
       "Cross-border real estate SaaS: integrations, notification pipelines, and heavy query optimization.",
@@ -111,9 +111,9 @@ export const experience = [
     company: "Fundación Jala",
     location: "Cochabamba, Bolivia",
     role: "Full Stack Developer, Intern",
-    period: "Jan 2022 – Jan 2023",
+    period: "Jan 2022 - Jan 2023",
     current: false,
-    summary: "Where it started — full-stack feature work across internal products.",
+    summary: "Where it started. Full-stack feature work across internal products.",
     achievements: [
       "Built full-stack features across internal projects applying SOLID principles, design patterns, and clean architecture in Agile/Scrum teams.",
     ],
@@ -176,7 +176,7 @@ export const projects: {
       "Document and compliance management platform for heavy transport companies, architected and built from scratch.",
     highlights: [
       "Multi-tenant architecture with per-company subdomain isolation via Cloudflare",
-      "Dynamic Stripe billing engine — tier pricing driven by driver counts, with T+3 deferred scheduling",
+      "Dynamic Stripe billing engine with tier pricing driven by driver counts and T+3 deferred scheduling",
       "Twilio SMS and Postmark email notifications queued through Redis with retry logic",
       "Deployed to a bare Linux server with pm2; Keycloak for identity management",
     ],
@@ -205,7 +205,7 @@ export const projects: {
     kind: "Field service SaaS",
     company: "Iventiva",
     summary:
-      "Subscription platform field-service companies — plumbers, electricians, masons — use to manage their technicians.",
+      "Subscription platform that field-service companies (plumbers, electricians, masons) use to manage their technicians.",
     highlights: [
       "Google Calendar-style scheduler shared by technicians and company admins",
       "Real-time GPS tracking via Google Maps, plus media uploads for work verification",
@@ -226,7 +226,7 @@ export const projects: {
       "Interactive, Minecraft-style house builder",
       "US/CA integrations for identity verification, bank authentication, and mortgage capacity",
       "Automated multi-stage email pipeline across the buyer journey",
-      "Critical query optimization — 28s down to 3.5s via schema redesign and materialized views",
+      "Cut a critical query from 28s to 3.5s with a schema redesign and materialized views",
     ],
     stack: ["React", "Next.js", "Ruby on Rails", "PostgreSQL", "Sequelize"],
     accent: "cyan",
@@ -238,5 +238,5 @@ export const education = {
   location: "Cochabamba, Bolivia",
   degree: "Bachelor's Degree",
   field: "Computer Science / Informatics Engineering",
-  period: "2017 – 2022",
+  period: "2017 - 2022",
 };

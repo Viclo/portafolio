@@ -101,7 +101,7 @@ export default function Contact() {
                     <p className="mt-3 leading-relaxed text-ink-600 dark:text-ink-300">
                       It landed in my inbox. I&apos;ll reply to{" "}
                       <span className="font-medium text-ink-900 dark:text-white">{sentTo}</span>{" "}
-                      within 24 hours — check your spam folder if you don&apos;t hear back.
+                      within 24 hours. If you don&apos;t hear back, check your spam folder.
                     </p>
                     <button
                       type="button"
@@ -214,7 +214,7 @@ export default function Contact() {
                         </span>
                       ) : (
                         <span className="text-sm text-ink-500 dark:text-ink-400">
-                          Goes straight to my inbox — no email app needed.
+                          Goes straight to my inbox. No email app needed.
                         </span>
                       )}
                     </p>
@@ -311,7 +311,7 @@ export default function Contact() {
                   </p>
                   <p className="mt-2 text-sm leading-relaxed text-ink-600 dark:text-ink-300">
                     Currently open to remote opportunities. Based in {personalInfo.location} (
-                    {personalInfo.timezone}) — comfortable overlapping with North American hours.
+                    {personalInfo.timezone}), and happy to overlap with North American hours.
                   </p>
                 </div>
               </RevealItem>
