@@ -76,7 +76,7 @@ export default function Navbar() {
               IM
             </span>
             <span className="hidden font-display text-[15px] font-semibold tracking-tight text-ink-900 sm:block dark:text-white">
-              Ivan Martinez
+              Ivan Martinez | Full Stack Developer
             </span>
           </a>
 

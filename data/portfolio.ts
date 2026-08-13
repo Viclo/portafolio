@@ -1,8 +1,11 @@
 export const personalInfo = {
-  name: "Ivan Martinez",
+  name: "Ivan Martinez | Full Stack Developer",
   title: "Full Stack Developer & Tech Lead",
   /* Hero headline is split so one phrase can carry the gold marker */
-  headline: { lead: "I build SaaS platforms that hold up in", accent: "production" },
+  headline: {
+    lead: "I build SaaS platforms that hold up in",
+    accent: "production",
+  },
   tagline:
     "4+ years building production-grade SaaS. I specialize in scalable backend systems, complex third-party integrations, and owning infrastructure end to end, from database design through to cloud deployment.",
   location: "Cochabamba, Bolivia",
@@ -113,7 +116,8 @@ export const experience = [
     role: "Full Stack Developer, Intern",
     period: "Jan 2022 - Jan 2023",
     current: false,
-    summary: "Where it started. Full-stack feature work across internal products.",
+    summary:
+      "Where it started. Full-stack feature work across internal products.",
     achievements: [
       "Built full-stack features across internal projects applying SOLID principles, design patterns, and clean architecture in Agile/Scrum teams.",
     ],
@@ -130,7 +134,15 @@ export const experience = [
 ];
 
 export const skills: Record<string, string[]> = {
-  Frontend: ["React", "Next.js", "Gatsby", "TypeScript", "JavaScript", "HTML5", "CSS"],
+  Frontend: [
+    "React",
+    "Next.js",
+    "Gatsby",
+    "TypeScript",
+    "JavaScript",
+    "HTML5",
+    "CSS",
+  ],
   Backend: ["Node.js", "NestJS", "GraphQL", "REST APIs", "Ruby on Rails"],
   Databases: ["PostgreSQL", "Redis", "Prisma ORM", "TypeORM", "Sequelize"],
   "DevOps & Cloud": [
@@ -143,7 +155,15 @@ export const skills: Record<string, string[]> = {
     "Bitbucket Pipelines",
     "Cloudflare",
   ],
-  Integrations: ["Stripe", "Twilio", "Postmark", "Keycloak", "Firestore", "BullMQ", "Google OAuth"],
+  Integrations: [
+    "Stripe",
+    "Twilio",
+    "Postmark",
+    "Keycloak",
+    "Firestore",
+    "BullMQ",
+    "Google OAuth",
+  ],
 };
 
 export const languages = [
