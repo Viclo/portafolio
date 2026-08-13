@@ -1,126 +1,122 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { MapPin, Calendar, Briefcase } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { experience } from "@/data/portfolio";
-import { useHasMounted } from "@/hooks/useHasMounted";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
-};
-
-const stagger = {
-  visible: { transition: { staggerChildren: 0.15 } },
-};
+import { Reveal, RevealItem } from "./ui/Reveal";
+import { SectionHeader } from "./ui/SectionHeader";
 
 export default function Experience() {
-  const hasMounted = useHasMounted();
   return (
-    <section id="experience" className="py-24 bg-slate-50 dark:bg-slate-900">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          variants={stagger}
-          initial={hasMounted ? "hidden" : false}
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-        >
-          {/* Section label */}
-          <motion.div variants={fadeUp} className="flex items-center gap-3 mb-3">
-            <span className="text-sm font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-widest">
-              Experience
-            </span>
-            <div className="h-px flex-1 max-w-12 bg-blue-600/30 dark:bg-blue-400/30" />
-          </motion.div>
+    <section
+      id="experience"
+      className="relative scroll-mt-24 border-y border-ink-900/8 bg-ink-50/60 py-28 sm:py-36 dark:border-white/8 dark:bg-white/[0.02]"
+    >
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+        <Reveal>
+          <SectionHeader
+            index="02"
+            label="Experience"
+            title="Four years, four teams, one throughline."
+            intro="Every role has meant owning a system end to end — not just the feature in front of me."
+          />
 
-          <motion.h2
-            variants={fadeUp}
-            className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-12"
-          >
-            Work History
-          </motion.h2>
-
-          {/* Timeline */}
-          <div className="relative">
-            {/* Vertical line */}
-            <div className="absolute left-4 sm:left-6 top-0 bottom-0 w-px bg-blue-200 dark:bg-blue-800/50" />
-
-            <div className="space-y-10">
-              {experience.map((job, index) => (
-                <motion.div
-                  key={index}
-                  variants={fadeUp}
-                  className="relative pl-12 sm:pl-16"
-                >
-                  {/* Timeline dot */}
-                  <div
-                    className={`absolute left-2.5 sm:left-4 top-6 w-3 h-3 rounded-full border-2 ${
-                      job.current
-                        ? "bg-blue-600 border-blue-600 shadow-lg shadow-blue-500/40"
-                        : "bg-white dark:bg-slate-900 border-blue-400 dark:border-blue-600"
-                    }`}
-                  />
-
-                  {/* Card */}
-                  <div className="bg-white dark:bg-slate-800/60 rounded-2xl p-6 border border-slate-200 dark:border-slate-700/60 hover:border-blue-300 dark:hover:border-blue-600/50 hover:shadow-md transition-all">
-                    {/* Header */}
-                    <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
-                      <div>
-                        <div className="flex items-center gap-2 mb-1">
-                          <Briefcase size={15} className="text-blue-500 dark:text-blue-400" />
-                          <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                            {job.role}
-                          </h3>
-                          {job.current && (
-                            <span className="px-2 py-0.5 text-xs font-semibold bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 rounded-full border border-blue-200 dark:border-blue-700">
-                              Current
-                            </span>
-                          )}
-                        </div>
-                        <p className="text-base font-semibold text-blue-600 dark:text-blue-400">
-                          {job.company}
-                        </p>
-                      </div>
-                      <div className="flex flex-col items-end gap-1 text-sm text-slate-500 dark:text-slate-400 shrink-0">
-                        <div className="flex items-center gap-1.5">
-                          <Calendar size={13} />
-                          <span>{job.period}</span>
-                        </div>
-                        <div className="flex items-center gap-1.5">
-                          <MapPin size={13} />
-                          <span>{job.location}</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Achievements */}
-                    <ul className="space-y-2 mb-5">
-                      {job.achievements.map((item, i) => (
-                        <li key={i} className="flex gap-3 text-sm text-slate-600 dark:text-slate-300">
-                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    {/* Stack tags */}
-                    <div className="flex flex-wrap gap-1.5">
-                      {job.stack.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2.5 py-1 text-xs font-medium bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg border border-blue-100 dark:border-blue-800/50"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+          <div className="mt-16">
+            {experience.map((job, i) => (
+              <RevealItem key={job.company}>
+                <Job job={job} isLast={i === experience.length - 1} />
+              </RevealItem>
+            ))}
           </div>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
+  );
+}
+
+function Job({ job, isLast }: { job: (typeof experience)[number]; isLast: boolean }) {
+  return (
+    <article className="grid gap-y-4 lg:grid-cols-12 lg:gap-x-10">
+      {/* ---- Period rail (left column on desktop) --------------------------- */}
+      <div className="lg:col-span-3 lg:pt-1">
+        <p className="font-mono text-sm text-ink-700 tabular-nums dark:text-ink-200">{job.period}</p>
+        <p className="mt-1.5 flex items-start gap-1.5 text-xs text-ink-500 dark:text-ink-400">
+          <MapPin size={13} className="mt-px shrink-0" />
+          {job.location}
+        </p>
+      </div>
+
+      {/* ---- Body ---------------------------------------------------------- */}
+      <div
+        className={`relative border-l border-ink-900/12 pl-7 sm:pl-9 lg:col-span-9 dark:border-white/12 ${
+          isLast ? "pb-0" : "pb-14 sm:pb-16"
+        }`}
+      >
+        {/* Timeline node */}
+        <span
+          aria-hidden
+          className={`absolute top-1.5 -left-[5px] h-2.5 w-2.5 rounded-full ${
+            job.current
+              ? "bg-brand-500 ring-4 ring-brand-500/20 dark:bg-brand-400 dark:ring-brand-400/20"
+              : "bg-ink-300 dark:bg-ink-600"
+          }`}
+        />
+
+        <div
+          className={
+            job.current
+              ? "rounded-2xl border border-brand-500/20 bg-white p-6 shadow-sm shadow-brand-500/5 sm:p-7 dark:border-brand-400/20 dark:bg-white/[0.04]"
+              : ""
+          }
+        >
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+            <h3
+              className={`font-display font-semibold tracking-tight text-ink-900 dark:text-white ${
+                job.current ? "text-xl sm:text-2xl" : "text-lg sm:text-xl"
+              }`}
+            >
+              {job.role}
+            </h3>
+            {job.current && (
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-500/10 px-2.5 py-1 font-mono text-[10px] tracking-[0.16em] text-brand-700 uppercase dark:bg-brand-400/15 dark:text-brand-200">
+                <span className="h-1.5 w-1.5 rounded-full bg-brand-500 dark:bg-brand-400" />
+                Current
+              </span>
+            )}
+          </div>
+
+          <p className="mt-1.5 font-medium text-brand-600 dark:text-brand-300">{job.company}</p>
+
+          <p className="mt-4 leading-relaxed text-ink-600 text-pretty dark:text-ink-300">
+            {job.summary}
+          </p>
+
+          <ul className="mt-5 space-y-3">
+            {job.achievements.map((item) => (
+              <li
+                key={item}
+                className="flex gap-3 text-sm leading-relaxed text-ink-600 dark:text-ink-300"
+              >
+                <span
+                  aria-hidden
+                  className="mt-[9px] h-1 w-1 shrink-0 rounded-full bg-brand-500/60 dark:bg-brand-400/60"
+                />
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <ul className="mt-6 flex flex-wrap gap-x-2 gap-y-1.5">
+            {job.stack.map((tech) => (
+              <li
+                key={tech}
+                className="rounded-md border border-ink-900/10 bg-white px-2 py-1 font-mono text-[11px] text-ink-600 dark:border-white/10 dark:bg-white/5 dark:text-ink-300"
+              >
+                {tech}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </article>
   );
 }

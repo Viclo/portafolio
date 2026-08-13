@@ -1,20 +1,26 @@
 export const personalInfo = {
   name: "Ivan Martinez",
-  title: "Full Stack Developer",
+  title: "Full Stack Developer & Tech Lead",
+  /* Hero headline is split so one phrase can carry the gold marker */
+  headline: { lead: "I build SaaS platforms that hold up in", accent: "production" },
   tagline:
-    "4+ years building production-grade SaaS platforms. Specialized in scalable backend systems, complex third-party API integrations, and full infrastructure ownership — from database design to cloud deployment.",
+    "4+ years building production-grade SaaS. Specialized in scalable backend systems, complex third-party integrations, and full infrastructure ownership — from database design to cloud deployment.",
   location: "Cochabamba, Bolivia",
+  timezone: "GMT-4",
   availability: "Open to remote opportunities",
   email: "ivangra85@gmail.com",
   github: "https://github.com/Viclo",
+  githubHandle: "github.com/Viclo",
   linkedin: "https://linkedin.com/in/ivan-martinez-fullstack",
+  linkedinHandle: "ivan-martinez-fullstack",
+  cv: "/Ivan_Martinez_CV.pdf",
 };
 
 export const stats = [
-  { value: "4+", label: "Years of Experience" },
-  { value: "4", label: "Companies" },
-  { value: "1", label: "Tech Lead Role" },
-  { value: "2", label: "Countries Served" },
+  { value: "4+", label: "Years building", detail: "production software" },
+  { value: "4", label: "Companies", detail: "US, Canada, Mexico, Bolivia" },
+  { value: "1", label: "Tech Lead role", detail: "promoted in 3 months" },
+  { value: "4", label: "Live products", detail: "shipped and running" },
 ];
 
 export const experience = [
@@ -24,8 +30,10 @@ export const experience = [
     role: "Tech Lead & Full Stack Developer",
     period: "Sep 2025 – Present",
     current: true,
+    summary:
+      "Promoted to Tech Lead after three months. Own the architecture of a multi-tenant compliance SaaS built from scratch.",
     achievements: [
-      "Promoted to Tech Lead after 3 months; led full architecture of a multi-tenant SaaS for document and compliance management in heavy transport, built from scratch with subdomain-based tenant isolation via Cloudflare.",
+      "Led full architecture of a multi-tenant SaaS for document and compliance management in heavy transport, built from scratch with subdomain-based tenant isolation via Cloudflare.",
       "Engineered dynamic Stripe billing engine: tier-based pricing algorithm driven by active/new/archived driver counts, T+3 invoice scheduling, payment method management, and DB invoice snapshots.",
       "Implemented async notification pipeline (Twilio SMS + Postmark email) with Redis-backed queues and retry logic; led legacy data migration from monolithic to modular schema.",
     ],
@@ -52,6 +60,8 @@ export const experience = [
     role: "Full Stack Developer",
     period: "Feb 2025 – Jan 2026",
     current: false,
+    summary:
+      "Real-time features and cloud infrastructure for a multi-role freelance marketplace.",
     achievements: [
       "Built real-time persistent chat (Firestore) with full conversation continuity across workflow stages (bid → contract → active work) on a multi-role freelance marketplace; designed a multi-role rating system with star-distribution chart.",
       "Replicated full AWS production environment for staging from scratch: Amplify (frontend), Elastic Beanstalk (backend), RDS, SSL certificates, and DNS routing.",
@@ -78,6 +88,8 @@ export const experience = [
     role: "Software Engineer",
     period: "Apr 2023 – Feb 2025",
     current: false,
+    summary:
+      "Cross-border real estate SaaS: integrations, notification pipelines, and heavy query optimization.",
     achievements: [
       "Designed automated email notification pipeline: 3 flows × 3 retries = up to 9 scheduled emails per user, covering identity verification, bank authentication, and mortgage assessment for a cross-border real estate SaaS.",
       "Reduced a critical DB query from 28s → 3.5s (~87% improvement) via schema redesign, N+1 ORM elimination, and materialized views on a Ruby on Rails application.",
@@ -101,6 +113,7 @@ export const experience = [
     role: "Full Stack Developer, Intern",
     period: "Jan 2022 – Jan 2023",
     current: false,
+    summary: "Where it started — full-stack feature work across internal products.",
     achievements: [
       "Built full-stack features across internal projects applying SOLID principles, design patterns, and clean architecture in Agile/Scrum teams.",
     ],
@@ -117,15 +130,7 @@ export const experience = [
 ];
 
 export const skills: Record<string, string[]> = {
-  Frontend: [
-    "React",
-    "Next.js",
-    "Gatsby",
-    "TypeScript",
-    "JavaScript",
-    "HTML5",
-    "CSS",
-  ],
+  Frontend: ["React", "Next.js", "Gatsby", "TypeScript", "JavaScript", "HTML5", "CSS"],
   Backend: ["Node.js", "NestJS", "GraphQL", "REST APIs", "Ruby on Rails"],
   Databases: ["PostgreSQL", "Redis", "Prisma ORM", "TypeORM", "Sequelize"],
   "DevOps & Cloud": [
@@ -138,53 +143,93 @@ export const skills: Record<string, string[]> = {
     "Bitbucket Pipelines",
     "Cloudflare",
   ],
-  Integrations: [
-    "Stripe",
-    "Twilio",
-    "Postmark",
-    "Keycloak",
-    "Firestore",
-    "BullMQ",
-    "Google OAuth",
-  ],
+  Integrations: ["Stripe", "Twilio", "Postmark", "Keycloak", "Firestore", "BullMQ", "Google OAuth"],
 };
 
-export const projects = [
+export const languages = [
+  { name: "Spanish", level: "Native" },
+  { name: "English", level: "Professional" },
+];
+
+/**
+ * Accents stay in the cool range adjacent to the brand blue — they differentiate
+ * the rows without turning the page into a rainbow.
+ */
+export type ProjectAccent = "blue" | "indigo" | "violet" | "cyan";
+
+export const projects: {
+  name: string;
+  url: string;
+  kind: string;
+  company: string;
+  summary: string;
+  highlights: string[];
+  stack: string[];
+  accent: ProjectAccent;
+}[] = [
   {
     name: "ComplyDQ",
     url: "https://my.complydq.com",
-    description:
-      "Document management SaaS for heavy transport companies built from scratch. Multi-tenant architecture with per-company subdomain isolation via Cloudflare, a dynamic Stripe billing engine with tier-based driver-count pricing and 3-day deferred scheduling, and a Twilio/Postmark notification pipeline queued via Redis. Deployed on a bare Linux server with pm2 and Keycloak for identity management.",
-    stack: ["Next.js", "NestJS", "PostgreSQL", "Stripe", "Redis", "Cloudflare"],
+    kind: "Compliance SaaS",
     company: "Redlizard Studioz Inc.",
-    accent: "blue" as const,
+    summary:
+      "Document and compliance management platform for heavy transport companies, architected and built from scratch.",
+    highlights: [
+      "Multi-tenant architecture with per-company subdomain isolation via Cloudflare",
+      "Dynamic Stripe billing engine — tier pricing driven by driver counts, with T+3 deferred scheduling",
+      "Twilio SMS and Postmark email notifications queued through Redis with retry logic",
+      "Deployed to a bare Linux server with pm2; Keycloak for identity management",
+    ],
+    stack: ["Next.js", "NestJS", "PostgreSQL", "Stripe", "Redis", "Cloudflare"],
+    accent: "blue",
   },
   {
     name: "ProtoCall",
     url: "https://protocall.pro",
-    description:
-      "Freelance marketplace where companies and individuals post projects and freelancers apply to them. Supports multi-role workflows, real-time persistent chat, milestones, time logs, and dispute resolution with an admin decision panel. The rating system mirrors Upwork's model: star distribution, weighted average, and last-5-reviews. Deployed on a self-hosted server via a CI/CD pipeline.",
-    stack: ["Next.js", "NestJS", "Firestore", "PostgreSQL", "Stripe", "AWS"],
+    kind: "Marketplace",
     company: "Nacer Digital",
-    accent: "violet" as const,
+    summary:
+      "Freelance marketplace where companies and individuals post projects and freelancers apply to them.",
+    highlights: [
+      "Multi-role workflows with real-time persistent chat, milestones, and time logs",
+      "Dispute resolution flow backed by an admin decision panel",
+      "Upwork-style rating model: star distribution, weighted average, and last-five reviews",
+      "Self-hosted deployment driven by a CI/CD pipeline",
+    ],
+    stack: ["Next.js", "NestJS", "Firestore", "PostgreSQL", "Stripe", "AWS"],
+    accent: "indigo",
   },
   {
     name: "ManoTécnica",
     url: "https://www.manotecnica.com",
-    description:
-      "SaaS platform that field-service companies (plumbers, electricians, masons, and similar trades) subscribe to for managing their technicians. Features a Google Calendar-style scheduler visible to both technicians and company admins, real-time GPS tracking via Google Maps, and media uploads for work verification. Payments are handled through Stripe with country-specific product configurations. Full AWS staging environment set up from scratch: Amplify, Elastic Beanstalk, RDS, SSL, and DNS routing.",
-    stack: ["React", "NestJS", "GraphQL", "PostgreSQL", "Heroku"],
+    kind: "Field service SaaS",
     company: "Iventiva",
-    accent: "emerald" as const,
+    summary:
+      "Subscription platform field-service companies — plumbers, electricians, masons — use to manage their technicians.",
+    highlights: [
+      "Google Calendar-style scheduler shared by technicians and company admins",
+      "Real-time GPS tracking via Google Maps, plus media uploads for work verification",
+      "Stripe payments with country-specific product configurations",
+      "Full AWS staging environment from scratch: Amplify, Elastic Beanstalk, RDS, SSL, DNS",
+    ],
+    stack: ["React", "NestJS", "GraphQL", "PostgreSQL", "Heroku"],
+    accent: "violet",
   },
   {
     name: "Ownly",
     url: "https://www.ownly.re",
-    description:
-      "Real estate SaaS built for the Canadian and US markets, where agencies list land and buyers can design their future home through an interactive, Minecraft-style house builder. It integrates third-party services for identity verification (US/CA providers), bank authentication, and mortgage capacity evaluation, supported by an automated multi-stage email pipeline and significant DB query optimizations.",
-    stack: ["React", "Next.js", "Ruby on Rails", "PostgreSQL", "Sequelize"],
+    kind: "Real estate SaaS",
     company: "Iventiva",
-    accent: "amber" as const,
+    summary:
+      "Real estate platform for the Canadian and US markets where agencies list land and buyers design their future home.",
+    highlights: [
+      "Interactive, Minecraft-style house builder",
+      "US/CA integrations for identity verification, bank authentication, and mortgage capacity",
+      "Automated multi-stage email pipeline across the buyer journey",
+      "Critical query optimization — 28s down to 3.5s via schema redesign and materialized views",
+    ],
+    stack: ["React", "Next.js", "Ruby on Rails", "PostgreSQL", "Sequelize"],
+    accent: "cyan",
   },
 ];
 
